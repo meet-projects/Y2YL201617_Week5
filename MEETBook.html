@@ -3,29 +3,81 @@
 
 <head>
 <link rel="stylesheet" href="styles/styles.css">
+<script type="text/javascript" src="http://code.jquery.com/jquery-
+latest.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/
+jquery-ui.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+   $('body').click(function() {
+     var firstElement = $(this).first();
+     firstElement.css('background-color', 'red');
+});
+});
+</script>
+<script type="text/javascript">
+function HoverStatus(status)
+{
+	element=$(status).first()
+	element.css("color", "green");
+}
+function ReturnNormal(status)
+{
+	element=$(status).first();
+	element.css("color", "black")
+}
+function Delete(status)
+{
+	element=$(status).first();
+	element.parent().hide();
+}
+  $( function() {
+    $( ".draggable" ).draggable();
+  } );
+ function updateDiv()
+    {
+        var x = $('#status').val();
+        $( "#NewStatus" ).append("<div class =\"posts ui-widget-content draggable\">\n"+
+	"<right onclick=\"Delete(this)\">x</right>\n"+
+  "<h3>User</h3>\n"+
+  "<img src='images/avatar3.jpg'>\n"+
+"<p onmouseover=\"HoverStatus(this)\" onmouseout=\"ReturnNormal(this)\">"+x + "</div>");
+    }
+</script>
 </head>
 
 <body>
+
+
 <h1> Welcome to GeekBook</h1>
 
-<div class = "posts">
+<form id="myForm" class="myForm" method="post" target="hidden-form" >
+        <b>Write new status here:</b> 
+        <textarea name="status" id="status" placeholder="Add status here" cols="40" ></textarea>
+        <input type="button" name="submit" id="submit" value="submit" onclick="updateDiv();"/>
+    </form>
+<div class ="posts ui-widget-content draggable">
+	<right onclick="Delete(this)">x</right>
   <h3>Laura</h3>
   <img src='images/avatar1.jpg'>
-<p> I Love MEET! </p>
+<p onmouseover="HoverStatus(this)" onmouseout="ReturnNormal(this)"> I Love MEET! </p>
 </div>
 
-<div class = "posts">
+<div class ="posts ui-widget-content draggable">
+<right onclick="Delete(this)">x</right>
   <h3>Ryan</h3>
   <img src='images/avatar2.png'>
-<p> What time is lunch? </p>
+<p onmouseover="HoverStatus(this)" onmouseout="ReturnNormal(this)"> What time is lunch? </p>
 </div>
 
-<div class = "posts">
+<div class ="posts ui-widget-content draggable">
+<right onclick="Delete(this)">x</right>
   <h3>Lorenzo</h3>
   <img src='images/avatar3.jpg'>
-<p>You'll be a web dev ninja in no time!</p>
+<p onmouseover="HoverStatus(this)" onmouseout="ReturnNormal(this)">You'll be a web dev ninja in no time!</p>
 </div>
-
+    <div id="NewStatus" background-color="white"></div>
+    <IFRAME style="display:none" name="hidden-form"></IFRAME>
 </body>
 
 
