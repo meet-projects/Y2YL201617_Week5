@@ -31,33 +31,53 @@ function Delete(status)
 	element=$(status).first();
 	element.parent().hide();
 }
+  $( function() {
+    $( ".draggable" ).draggable();
+  } );
+ function updateDiv()
+    {
+        var x = $('#status').val();
+        $( "#NewStatus" ).append("<div class =\"posts ui-widget-content draggable\">\n"+
+	"<right onclick=\"Delete(this)\">x</right>\n"+
+  "<h3>User</h3>\n"+
+  "<img src='images/avatar3.jpg'>\n"+
+"<p onmouseover=\"HoverStatus(this)\" onmouseout=\"ReturnNormal(this)\">"+x + "</div>");
+    }
 </script>
 </head>
 
 <body>
+
+
 <h1> Welcome to GeekBook</h1>
 
-<div class = "posts">
+<form id="myForm" class="myForm" method="post" target="hidden-form" >
+        <b>Write new status here:</b> 
+        <textarea name="status" id="status" placeholder="Add status here" cols="40" ></textarea>
+        <input type="button" name="submit" id="submit" value="submit" onclick="updateDiv();"/>
+    </form>
+<div class ="posts ui-widget-content draggable">
 	<right onclick="Delete(this)">x</right>
   <h3>Laura</h3>
   <img src='images/avatar1.jpg'>
 <p onmouseover="HoverStatus(this)" onmouseout="ReturnNormal(this)"> I Love MEET! </p>
 </div>
 
-<div class = "posts">
+<div class ="posts ui-widget-content draggable">
 <right onclick="Delete(this)">x</right>
   <h3>Ryan</h3>
   <img src='images/avatar2.png'>
 <p onmouseover="HoverStatus(this)" onmouseout="ReturnNormal(this)"> What time is lunch? </p>
 </div>
 
-<div class = "posts">
+<div class ="posts ui-widget-content draggable">
 <right onclick="Delete(this)">x</right>
   <h3>Lorenzo</h3>
   <img src='images/avatar3.jpg'>
 <p onmouseover="HoverStatus(this)" onmouseout="ReturnNormal(this)">You'll be a web dev ninja in no time!</p>
 </div>
-
+    <div id="NewStatus" background-color="white"></div>
+    <IFRAME style="display:none" name="hidden-form"></IFRAME>
 </body>
 
 
