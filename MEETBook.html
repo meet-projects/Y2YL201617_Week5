@@ -1,31 +1,117 @@
-<html>
+ <html>
 
 
 <head>
 <link rel="stylesheet" href="styles/styles.css">
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-
+latest.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/
+jquery-ui.min.js"></script>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-
+latest.min.js"></script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Draggable - Snap to element or grid</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+  .draggable { width: 90px; height: 80px; padding: 5px; float: left; margin: 0 10px 10px 0; font-size: .9em; }
+  .ui-widget-header p, .ui-widget-content p { margin: 0; }
+  #snaptarget { height: 140px; }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+<script>
+$(document).ready(function(){
+    $(".posts").hover(function(){
+        $(this).css("background-color", "B6ABBA");
+        }, function(){
+        $(this).css("background-color", "pink");
+    });
+});
+
+
+
+
+$(document).ready(function(){
+    $("#button1").click(function(){
+        $("#Laura").toggle();
+    });
+});
+
+$(document).ready(function(){
+    $("#button2").click(function(){
+        $("#Ryan").toggle();
+    });
+});
+
+$(document).ready(function(){
+    $("#button3").click(function(){
+        $("#Lorenzo").toggle();
+    });
+});
+
+
+  $( function() {
+
+    $( "#Laura" ).draggable({ grid: [1000, 335 ] });
+    $( "#Ryan" ).draggable({ grid: [ 1000, 335 ] });
+    $( "#Lorenzo" ).draggable({ grid: [ 1000, 335 ] });
+  } );
+
+function myFunction() {
+    var x = document.getElementById("myText").value;
+    document.getElementById("demo").innerHTML = x;
+}
+
+</script>
 </head>
 
 <body>
 <h1> Welcome to GeekBook</h1>
 
-<div class = "posts">
+<div class="posts" id="new_status">
+<input type="text" id="myText" value="Status">
+	<button onclick="myFunction()">Post</button>
+	
+		<p id="demo"></p>
+
+</div>
+
+<div class = "posts" id="Laura">
+<button id="button1">X</button>
   <h3>Laura</h3>
   <img src='images/avatar1.jpg'>
 <p> I Love MEET! </p>
 </div>
 
-<div class = "posts">
+<div class = "posts" id="Ryan">
+<button id="button2">X</button>
   <h3>Ryan</h3>
   <img src='images/avatar2.png'>
 <p> What time is lunch? </p>
+
 </div>
 
-<div class = "posts">
+<div class = "posts" id="Lorenzo">
+<button id="button3">X</button>
   <h3>Lorenzo</h3>
   <img src='images/avatar3.jpg'>
 <p>You'll be a web dev ninja in no time!</p>
 </div>
 
+
+<div class = "posts" >
+<button id="button3">X</button>
+  <h3>Lorenzo</h3>
+  <img src='images/avatar3.jpg'>
+<p>dfghdf</p>
+</div>
 </body>
 
 
